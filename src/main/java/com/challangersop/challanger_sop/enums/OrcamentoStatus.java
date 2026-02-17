@@ -1,6 +1,6 @@
 package com.challangersop.challanger_sop.enums;
 
-public enum OrcamentosStatus {
+public enum OrcamentoStatus {
     ABERTO,
     FINALIZADO
 }

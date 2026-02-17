@@ -26,7 +26,7 @@ public class OrcamentoEntity {
     @Column(name = "total_value", nullable = false, precision = 15, scale = 2)
     private BigDecimal valorTotal;
 
-    @Column(name = "total_value", nullable = false)
+    @Column(name = "create_at", nullable = false)
     private LocalDate dataCriacao;
 
     @Enumerated(EnumType.STRING)

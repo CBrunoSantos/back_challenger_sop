@@ -8,5 +8,5 @@ import com.challangersop.challanger_sop.entities.OrcamentoEntity;
 
 public interface OrcamentoRepository extends JpaRepository<OrcamentoEntity, Long> {
     Optional<OrcamentoEntity> findByNumeroProtocolo(String numeroProtocolo);
-    boolean exiexistsByNumeroProtocolo(String numeroProtocolo);
+    boolean existsByNumeroProtocolo(String numeroProtocolo);
 }

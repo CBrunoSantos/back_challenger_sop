@@ -10,6 +10,6 @@ import com.challangersop.challanger_sop.enums.MedicaoStatus;
 
 public interface MedicaoRepository extends JpaRepository<MedicaoEntity, Long>{
     Optional<MedicaoEntity> findByNumero(String numero);
-    boolean existexistsByOrcamentoAndStatus(Long orcamentoId, MedicaoStatus status);
+    boolean existsByOrcamentoAndStatus(Long orcamentoId, MedicaoStatus status);
     List<MedicaoEntity> findAllByOrcamentoId(Long orcamentoId);
 }

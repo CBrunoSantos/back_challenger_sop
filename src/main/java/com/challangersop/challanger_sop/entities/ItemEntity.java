@@ -21,6 +21,9 @@ public class ItemEntity {
     @Column(name = "unit_value", nullable = false, precision = 15, scale = 2)
     private BigDecimal valorUnitario;
 
+    @Column(name = "total_value", precision = 15, scale = 2, insertable = false, updatable = false)
+    private BigDecimal valorTotal;
+
     @Column(name = "quantity_amount", nullable = false, precision = 15, scale = 3)
     private BigDecimal quantidadeAcumulada;
 
@@ -28,7 +31,7 @@ public class ItemEntity {
     @JoinColumn(name = "orc_id", nullable = false)
     private OrcamentoEntity orcamento;
 
-    protected ItemEntity() {
+    public ItemEntity() {
     }
 
     public Long getId() {
@@ -57,6 +60,10 @@ public class ItemEntity {
 
     public void setValorUnitario(BigDecimal valorUnitario) {
         this.valorUnitario = valorUnitario;
+    }
+
+    public BigDecimal getValorTotal() {
+        return this.valorTotal;
     }
 
     public BigDecimal getQuantidadeAcumulada() {

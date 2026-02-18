@@ -38,7 +38,7 @@ public class OrcamentoEntity {
     @Column(name = "status", nullable = false, columnDefinition = "orcamento_status")
     private OrcamentoStatus status;
 
-    protected OrcamentoEntity(){
+    public OrcamentoEntity(){
     }
 
     public long getId() {

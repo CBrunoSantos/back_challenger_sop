@@ -3,6 +3,9 @@ package com.challangersop.challanger_sop.entities;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
+
 import com.challangersop.challanger_sop.enums.OrcamentoStatus;
 import com.challangersop.challanger_sop.enums.OrcamentoTipo;
 
@@ -20,7 +23,8 @@ public class OrcamentoEntity {
     private String numeroProtocolo;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "type_orc", nullable = false)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
+    @Column(name = "type_orc", nullable = false, columnDefinition = "orcamento_tipo")
     private OrcamentoTipo tipo;
 
     @Column(name = "total_value", nullable = false, precision = 15, scale = 2)
@@ -30,7 +34,8 @@ public class OrcamentoEntity {
     private LocalDate dataCriacao;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
+    @Column(name = "status", nullable = false, columnDefinition = "orcamento_status")
     private OrcamentoStatus status;
 
     protected OrcamentoEntity(){

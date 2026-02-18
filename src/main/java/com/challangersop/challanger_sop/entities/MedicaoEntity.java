@@ -7,6 +7,9 @@ import com.challangersop.challanger_sop.enums.MedicaoStatus;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 
+import org.hibernate.annotations.JdbcTypeCode;
+import org.hibernate.type.SqlTypes;
+
 @Entity
 @Table(name = "medicao")
 public class MedicaoEntity {
@@ -25,7 +28,8 @@ public class MedicaoEntity {
     private BigDecimal valorTotal;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "status", nullable = false)
+    @JdbcTypeCode(SqlTypes.NAMED_ENUM)
+    @Column(name = "status", nullable = false, columnDefinition = "medicao_status")
     private MedicaoStatus status;
 
     @Column(name = "observacao")

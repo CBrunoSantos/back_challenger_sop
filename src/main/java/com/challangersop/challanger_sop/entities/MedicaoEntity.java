@@ -39,7 +39,7 @@ public class MedicaoEntity {
     @JoinColumn(name = "orc_id", nullable = false)
     private OrcamentoEntity orcamento;
 
-    protected MedicaoEntity() {
+    public MedicaoEntity() {
     }
 
     public Long getId() {

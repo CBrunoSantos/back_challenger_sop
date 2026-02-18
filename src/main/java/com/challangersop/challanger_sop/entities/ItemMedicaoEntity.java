@@ -34,7 +34,7 @@ public class ItemMedicaoEntity {
     @JoinColumn(name = "measure_id", nullable = false)
     private MedicaoEntity medicao;
 
-    protected ItemMedicaoEntity() {
+    public ItemMedicaoEntity() {
     }
 
     public Long getId() {

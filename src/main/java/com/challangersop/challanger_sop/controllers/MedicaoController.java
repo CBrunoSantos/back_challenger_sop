@@ -6,6 +6,9 @@ import com.challangersop.challanger_sop.dtos.medicao.MedicaoItemUpsertRequest;
 import com.challangersop.challanger_sop.dtos.medicao.MedicaoResponse;
 import com.challangersop.challanger_sop.services.MedicaoService;
 import jakarta.validation.Valid;
+
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -34,6 +37,18 @@ public class MedicaoController {
     @PostMapping("/{medicaoId}/validar")
     public ResponseEntity<MedicaoResponse> validar(@PathVariable Long medicaoId) {
         MedicaoResponse response = medicaoService.validar(medicaoId);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/orcamento/{orcamentoId}")
+    public ResponseEntity<List<MedicaoResponse>> listarPorOrcamento(@PathVariable Long orcamentoId) {
+        List<MedicaoResponse> response = medicaoService.listarPorOrcamento(orcamentoId);
+        return ResponseEntity.ok(response);
+    }  
+
+    @GetMapping("/{medicaoId}/itens")
+    public ResponseEntity<List<MedicaoItemResponse>> listarItens(@PathVariable Long medicaoId) {
+        List<MedicaoItemResponse> response = medicaoService.listarItensDaMedicao(medicaoId);
         return ResponseEntity.ok(response);
     }
 }

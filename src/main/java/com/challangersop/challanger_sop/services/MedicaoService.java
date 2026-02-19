@@ -162,4 +162,28 @@ public class MedicaoService {
         return MedicaoResponse.from(saved);
     }
 
+    @Transactional(readOnly = true)
+    public List<MedicaoResponse> listarPorOrcamento(Long orcamentoId) {
+        if (!orcamentoRepository.existsById(orcamentoId)) {
+            throw new NotFoundException("Orçamento não encontrado.");
+        }
+
+        return medicaoRepository.findByOrcamentoIdOrderByDataMedicaoDescIdDesc(orcamentoId)
+            .stream()
+            .map(MedicaoResponse::from)
+            .toList();
+    }
+
+    @Transactional(readOnly = true)
+    public List<MedicaoItemResponse> listarItensDaMedicao(Long medicaoId) {
+        if (!medicaoRepository.existsById(medicaoId)) {
+            throw new NotFoundException("Medição não encontrada.");
+        }
+
+        return itemMedicaoRepository.findByMedicaoIdOrderByIdAsc(medicaoId)
+            .stream()
+            .map(MedicaoItemResponse::from)
+            .toList();
+    }
+
 }

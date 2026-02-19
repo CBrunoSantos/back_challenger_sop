@@ -20,4 +20,6 @@ public interface MedicaoRepository extends JpaRepository<MedicaoEntity, Long>{
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     @Query("select m from MedicaoEntity m where m.id = :id")
     Optional<MedicaoEntity> findByIdForUpdate(Long id);
+
+    List<MedicaoEntity> findByOrcamentoIdOrderByDataMedicaoDescIdDesc(Long orcamentoId);
 }

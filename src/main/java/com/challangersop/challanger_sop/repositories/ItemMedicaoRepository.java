@@ -10,4 +10,5 @@ import com.challangersop.challanger_sop.entities.ItemMedicaoEntity;
 public interface ItemMedicaoRepository extends JpaRepository<ItemMedicaoEntity, Long>{
     Optional<ItemMedicaoEntity> findByMedicaoIdAndItemId(Long medicaoId, Long itemId);
     List<ItemMedicaoEntity> findAllByMedicaoId(Long medicaoId);
+    List<ItemMedicaoEntity> findByMedicaoIdOrderByIdAsc(Long medicaoId);
 }

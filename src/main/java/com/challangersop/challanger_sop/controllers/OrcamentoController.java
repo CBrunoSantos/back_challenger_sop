@@ -1,5 +1,7 @@
 package com.challangersop.challanger_sop.controllers;
 
+import java.util.List;
+
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -46,6 +48,12 @@ public class OrcamentoController {
     @PostMapping("/{id}/finalizar")
     public ResponseEntity<OrcamentoResponse> finalizar(@PathVariable Long id) {
         OrcamentoResponse response = orcamentoService.finalizar(id);
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping("/listar")
+    public ResponseEntity<List<OrcamentoResponse>> listar(){
+        List<OrcamentoResponse> response = orcamentoService.listar();
         return ResponseEntity.ok(response);
     }
 }

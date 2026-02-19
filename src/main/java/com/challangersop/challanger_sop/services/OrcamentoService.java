@@ -2,6 +2,7 @@ package com.challangersop.challanger_sop.services;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.stereotype.Service;
@@ -96,5 +97,11 @@ public class OrcamentoService {
         entity.setStatus(OrcamentoStatus.FINALIZADO);
         OrcamentoEntity saved = orcamentoRepository.save(entity);
         return OrcamentoResponse.from(saved);
+    }
+
+    @Transactional
+    public List<OrcamentoResponse> listar(){
+        List<OrcamentoEntity> orcamentos = orcamentoRepository.findAll();
+        return orcamentos.stream().map(OrcamentoResponse::from).toList();
     }
 }

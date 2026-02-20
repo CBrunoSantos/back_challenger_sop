@@ -189,6 +189,6 @@ O projeto inclui:
 - Diagrama Entidade-Relacionamento
 - Script SQL
 
-![DER](https://postimg.cc/Cnsr19vK/d9cee50e)
+![DER](https://i.postimg.cc/2yPsHDhn/DER.jpg)
 
 ---

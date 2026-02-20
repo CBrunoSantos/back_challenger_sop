@@ -45,6 +45,11 @@ public class OrcamentoEntity {
         return id;
     }
 
+    public void setId(long id) {
+        this.id = id;
+    }
+
+
     public String getNumeroProtocolo() {
         return numeroProtocolo;
     }

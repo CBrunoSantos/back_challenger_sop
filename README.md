@@ -100,6 +100,8 @@ Servidor disponível em:
 
 ```
 http://localhost:8080
+
+backchallengersop-production.up.railway.app
 ```
 
 ---

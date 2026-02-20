@@ -6,7 +6,13 @@ import com.challangersop.challanger_sop.enums.OrcamentoTipo;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.PositiveOrZero;
+import lombok.*;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class OrcamentoUpdateRequest {
 
     @NotNull
@@ -15,20 +21,4 @@ public class OrcamentoUpdateRequest {
     @NotNull
     @PositiveOrZero
     private BigDecimal valorTotal;
-
-    public OrcamentoTipo getTipo() {
-        return tipo;
-    }
-
-    public void setTipo(OrcamentoTipo tipo) {
-        this.tipo = tipo;
-    }
-
-    public BigDecimal getValorTotal() {
-        return valorTotal;
-    }
-
-    public void setValorTotal(BigDecimal valorTotal) {
-        this.valorTotal = valorTotal;
-    }
 }

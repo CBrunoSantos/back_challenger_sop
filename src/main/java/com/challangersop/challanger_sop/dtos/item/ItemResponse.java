@@ -3,6 +3,12 @@ package com.challangersop.challanger_sop.dtos.item;
 import java.math.BigDecimal;
 
 import com.challangersop.challanger_sop.entities.ItemEntity;
+import lombok.*;
+
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 
 public class ItemResponse {
 
@@ -21,42 +27,14 @@ public class ItemResponse {
     private Long orcamentoId;
 
     public static ItemResponse from(ItemEntity entity) {
-        ItemResponse res = new ItemResponse();
-        res.id = entity.getId();
-        res.descricao = entity.getDescricao();
-        res.quantidade = entity.getQuantidade();
-        res.valorUnitario = entity.getValorUnitario();
-        res.valorTotal = entity.getValorTotal();
-        res.quantidadeAcumulada = entity.getQuantidadeAcumulada();
-        res.orcamentoId = entity.getOrcamento().getId();
-        return res;
-    }
-
-    public Long getId() {
-        return this.id;
-    }
-
-    public String getDescricao() {
-        return this.descricao;
-    }
-
-    public BigDecimal getQuantidade() {
-        return this.quantidade;
-    }
-
-    public BigDecimal getValorUnitario() {
-        return this.valorUnitario;
-    }
-
-    public BigDecimal getValorTotal() {
-        return this.valorTotal;
-    }
-
-    public BigDecimal getQuantidadeAcumulada() {
-        return this.quantidadeAcumulada;
-    }
-
-    public Long getOrcamentoId() {
-        return this.orcamentoId;
+        return ItemResponse.builder()
+            .id(entity.getId())
+            .descricao(entity.getDescricao())
+            .quantidade(entity.getQuantidade())
+            .valorUnitario(entity.getValorUnitario())
+            .valorTotal(entity.getValorTotal())
+            .quantidadeAcumulada(entity.getQuantidadeAcumulada())
+            .orcamentoId(entity.getOrcamento().getId())
+            .build();
     }
 }

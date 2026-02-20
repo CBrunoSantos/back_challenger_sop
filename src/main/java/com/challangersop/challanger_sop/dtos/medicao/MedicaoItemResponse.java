@@ -3,7 +3,12 @@ package com.challangersop.challanger_sop.dtos.medicao;
 import com.challangersop.challanger_sop.entities.ItemMedicaoEntity;
 
 import java.math.BigDecimal;
+import lombok.*;
 
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class MedicaoItemResponse {
 
     private Long id;
@@ -19,37 +24,14 @@ public class MedicaoItemResponse {
     private BigDecimal valorTotalMedido;
 
     public static MedicaoItemResponse from(ItemMedicaoEntity entity) {
-        MedicaoItemResponse res = new MedicaoItemResponse();
-        res.id = entity.getId();
-        res.medicaoId = entity.getMedicao().getId();
-        res.itemId = entity.getItem().getId();
-        res.quantidadeMedida = entity.getQuantidadeMedida();
-        res.valorUnitarioAplicado = entity.getValorUnitarioAplicado();
-        res.valorTotalMedido = entity.getValorTotalMedido();
-        return res;
+        return MedicaoItemResponse.builder()
+            .id(entity.getId())
+            .medicaoId(entity.getMedicao().getId())
+            .itemId(entity.getItem().getId())
+            .quantidadeMedida(entity.getQuantidadeMedida())
+            .valorUnitarioAplicado(entity.getValorUnitarioAplicado())
+            .valorTotalMedido(entity.getValorTotalMedido())
+            .build();
     }
 
-    public Long getId() {
-        return this.id;
-    }
-
-    public Long getMedicaoId() {
-        return this.medicaoId;
-    }
-
-    public Long getItemId() {
-        return this.itemId;
-    }
-
-    public BigDecimal getQuantidadeMedida() {
-        return this.quantidadeMedida;
-    }
-
-    public BigDecimal getValorUnitarioAplicado() {
-        return this.valorUnitarioAplicado;
-    }
-
-    public BigDecimal getValorTotalMedido() {
-        return this.valorTotalMedido;
-    }
 }

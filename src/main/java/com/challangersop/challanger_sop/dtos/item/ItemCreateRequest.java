@@ -5,6 +5,13 @@ import java.math.BigDecimal;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
+import lombok.*;
+
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 
 public class ItemCreateRequest {
 
@@ -21,36 +28,4 @@ public class ItemCreateRequest {
 
     @NotNull
     private Long orcamentoId;
-
-    public String getDescricao() {
-        return this.descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
-    public BigDecimal getQuantidade() {
-        return this.quantidade;
-    }
-
-    public void setQuantidade(BigDecimal quantidade) {
-        this.quantidade = quantidade;
-    }
-
-    public BigDecimal getValorUnitario() {
-        return this.valorUnitario;
-    }
-
-    public void setValorUnitario(BigDecimal valorUnitario) {
-        this.valorUnitario = valorUnitario;
-    }
-
-    public Long getOrcamentoId() {
-        return this.orcamentoId;
-    }
-
-    public void setOrcamentoId(Long orcamentoId) {
-        this.orcamentoId = orcamentoId;
-    }
 }

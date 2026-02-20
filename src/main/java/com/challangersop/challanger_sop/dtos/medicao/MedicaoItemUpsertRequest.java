@@ -4,7 +4,13 @@ import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
 
 import java.math.BigDecimal;
+import lombok.*;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class MedicaoItemUpsertRequest {
 
     @NotNull
@@ -14,19 +20,4 @@ public class MedicaoItemUpsertRequest {
     @Positive
     private BigDecimal quantidadeMedida;
 
-    public Long getItemId() {
-        return this.itemId;
-    }
-
-    public void setItemId(Long itemId) {
-        this.itemId = itemId;
-    }
-
-    public BigDecimal getQuantidadeMedida() {
-        return this.quantidadeMedida;
-    }
-
-    public void setQuantidadeMedida(BigDecimal quantidadeMedida) {
-        this.quantidadeMedida = quantidadeMedida;
-    }
 }
